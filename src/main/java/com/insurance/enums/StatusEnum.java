@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 
 public enum StatusEnum {
 
-    RECEIVED, VALIDATED, PENDING, REJECTED, APPROVED, CANCELED;
+    RECEIVED, VALIDATED, PENDING, REJECTED, APPROVED, CANCELED, PAYMENT_CONFIRMED, SUBSCRIPTION_ALLOWED;
 
     public History createHistory() {
         return History.builder()

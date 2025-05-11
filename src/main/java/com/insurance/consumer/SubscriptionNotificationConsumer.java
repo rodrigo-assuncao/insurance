@@ -12,7 +12,7 @@ public class SubscriptionNotificationConsumer {
 
     @RabbitListener(queues = "${spring.rabbitmq.topic.subscription-notification.queue}")
     public void consumer(SubscriptionNotificationDto payload) {
-        this.processOrder.updateStatusOrder(payload.getOrderId(), payload.getStatus());
+        this.processOrder.updateStatusOrder(payload.getOrderId(), payload.getStatus().getOrderStatus());
     }
 
 }

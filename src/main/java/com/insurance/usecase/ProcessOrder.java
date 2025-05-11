@@ -4,11 +4,13 @@ import com.insurance.dto.request.OrderRequest;
 import com.insurance.dto.response.OrderResponse;
 import com.insurance.enums.StatusEnum;
 import com.insurance.mapper.OrderMapper;
+import com.insurance.model.History;
 import com.insurance.service.FraudRestService;
 import com.insurance.service.OrderService;
 import com.insurance.validator.customerprofile.CustomerProfileValidatorFactory;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
 import java.util.UUID;
@@ -50,13 +52,44 @@ public class ProcessOrder {
     public void updateStatusOrder(String orderId, StatusEnum status) {
         var order = this.orderService.findById(UUID.fromString(orderId));
 
-        this.orderService.updateOrderStatus(order, status);
+        if (order.getHistory().stream().anyMatch(history -> history.getStatus() == CANCELED)) {
+            throw new RuntimeException("Order Canceled");
+        }
+
+        var updatedOrder = this.orderService.updateOrderStatus(order, status);
+
+        var lastOrderStatus = updatedOrder.getHistory().stream()
+                .map(History::getStatus)
+                .toList();
+
+        if (lastOrderStatus.contains(SUBSCRIPTION_ALLOWED) && lastOrderStatus.contains(PAYMENT_CONFIRMED)) {
+            this.orderService.updateOrderStatus(updatedOrder, APPROVED);
+        }
     }
 
     public OrderResponse findOrderByOrderId(String orderId) {
         return this.orderMapper.toResponse(
                 this.orderService.findById(UUID.fromString(orderId))
         );
+    }
+
+    public OrderResponse cancelOrder(String orderId) {
+        var order = this.orderService.findById(UUID.fromString(orderId));
+
+        var lastHistoryOptional = order.lastOrderHistory();
+
+        if (lastHistoryOptional.isPresent()) {
+            var lastHistory = lastHistoryOptional.get();
+            if (lastHistory.getStatus() == CANCELED) {
+                throw new RuntimeException("Order already canceled");
+            } else if (lastHistory.getStatus() == APPROVED || lastHistory.getStatus() == REJECTED) {
+                throw new RuntimeException("Cancel Order not allowed. Order status is " + StringUtils.capitalize(lastHistory.getStatus().name()));
+            }
+        }
+
+        var updatedOrder = this.orderService.updateOrderStatus(order, CANCELED);
+
+        return this.orderMapper.toResponse(updatedOrder);
     }
 
 }

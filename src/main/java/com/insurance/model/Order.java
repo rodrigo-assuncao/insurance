@@ -9,9 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 @Getter
 @Setter
@@ -35,5 +33,11 @@ public class Order {
     private Map<String, BigDecimal> coverages;
     private List<String> assistances;
     private List<History> history;
+
+    public Optional<History> lastOrderHistory() {
+        return this.history.stream()
+                .sorted(Comparator.comparing(History::getTimestamp).reversed())
+                .reduce((a, b) -> a);
+    }
 
 }

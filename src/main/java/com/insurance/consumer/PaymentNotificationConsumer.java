@@ -12,7 +12,7 @@ public class PaymentNotificationConsumer {
 
     @RabbitListener(queues = "${spring.rabbitmq.topic.payment-notification.queue}")
     public void consumer(PaymentNotificationDto payload) {
-        this.processOrder.updateStatusOrder(payload.getOrderId(), payload.getStatus());
+        this.processOrder.updateStatusOrder(payload.getOrderId(), payload.getStatus().getOrderStatus());
     }
 
 }

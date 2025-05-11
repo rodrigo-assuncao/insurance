@@ -18,7 +18,8 @@ public class CustomerNoInformationValidator extends AbstractCustomerProfileValid
     protected boolean isCategoryValid(Order order) {
         return switch (order.getCategory()) {
             case LIFE, RESIDENTIAL -> order.getInsuredAmount().compareTo(new BigDecimal("200000")) <= 0;
-            default -> order.getInsuredAmount().compareTo(new BigDecimal("75000")) <= 0;
+            case AUTO -> order.getInsuredAmount().compareTo(new BigDecimal("75000")) <= 0;
+            default -> order.getInsuredAmount().compareTo(new BigDecimal("55000")) <= 0;
         };
     }
 }
