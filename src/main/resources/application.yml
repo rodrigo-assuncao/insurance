@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: insurance
+  data:
+    mongodb:
+      uri: mongodb://root:root@localhost:27017/insurance?authSource=admin
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: root
+    password: root
+    topic:
+      payment-notification:
+        queue: payment-notification-update
+      subscription-notification:
+        queue: subscription-notification-update
+      status-update:
+        exchange: insurance-topic-exchange
+        queue: insurance.queue
+        routing-key: insurance.status-update
+  client:
+    fraud-rest-service:
+      url: localhost:8081/fraud
+
+feign:
+  client:
+    config:
+      default:
+        connect-timeout: 3000
+        read-timeout: 5000
+        loggerLevel: full
