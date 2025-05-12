@@ -16,6 +16,8 @@ import org.springframework.stereotype.Component;
 
 import java.util.UUID;
 
+import static com.insurance.domain.enums.StatusEnum.*;
+
 @Slf4j
 @Component
 @RequiredArgsConstructor
