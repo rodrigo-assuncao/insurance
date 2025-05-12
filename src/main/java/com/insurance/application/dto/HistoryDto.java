@@ -1,6 +1,6 @@
 package com.insurance.application.dto;
 
-import com.insurance.domain.model.enums.StatusEnum;
+import com.insurance.domain.enums.StatusEnum;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;

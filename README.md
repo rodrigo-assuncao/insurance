@@ -1,16 +1,13 @@
-# 🏦 Desafio Técnico – Itaú
-
-Este projeto foi desenvolvido como parte de um desafio técnico para a vaga de desenvolvedor backend no Itaú Unibanco.
 
 ---
 
-## 📌 Descrição
+## Descrição
 
 Aplicação desenvolvida em **Spring Boot** para gerenciar solicitações de seguro, com validação antifraude, persistência em MongoDB e mensageria assíncrona via RabbitMQ.
 
 ---
 
-## 🚀 Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - Java 17
 - Spring Boot 3.x
@@ -27,7 +24,7 @@ Aplicação desenvolvida em **Spring Boot** para gerenciar solicitações de seg
 
 ---
 
-## ⚙️ Como Executar Localmente
+## Como Executar Localmente
 
 ### 1. Subir os containers
 📄 [docker-compose.yml](./docker-compose.yml)
@@ -52,7 +49,7 @@ ou executar a classe [InsuranceApplication.java](src/main/java/com/insurance/Ins
 
 ---
 
-## 🧪 Rodar os Testes
+## Rodar os Testes
 
 ```bash
 ./mvnw test
@@ -64,7 +61,7 @@ ou executar a classe [InsuranceApplication.java](src/main/java/com/insurance/Ins
 
 ---
 
-## 🔍 Documentação da API
+## Documentação da API
 
 Acesse via Swagger:
 
@@ -74,7 +71,7 @@ http://localhost:8080/swagger-ui.html
 
 ---
 
-## 📈 Observabilidade
+## Observabilidade
 
 Actuator habilitado para os endpoints:
 
@@ -86,7 +83,7 @@ http://localhost:8080/actuator/metrics
 
 ---
 
-## 🧱 Arquitetura
+## Arquitetura
 
 Padrão baseado em **Clean Architecture**, com separação de camadas:
 
@@ -105,25 +102,17 @@ com.insurance
 
 ---
 
-## ✅ Decisões de Projeto
+## Decisões de Projeto
 
 - **RabbitMQ (Topic Exchange)**: para comunicação desacoplada entre serviços
 - **MongoDB**: flexível para armazenar estruturas de seguro
 - **Feign Client**: abstração para comunicação com API externa de fraude
 - **MapStruct**: mapeamento limpo entre entidade e DTO
 - **Swagger + Actuator**: documentação e observabilidade
-- Adicionei 2 Status a ordem para facilitar o processamento da notificação do pagamento e subscrição
 
 ---
 
-## 📁 Estrutura esperada
-
-Mocks criados para facilitar a comunicação com o serviço de fraude;
-
-- Id de cliente de alto risco: adc56d77-348c-4bf0-908f-22d402ee715c;
-- Id de cliente Sem Informação: 692bfe41-e92a-4e04-ba26-ee77669d2c7b;
-- Id de cliente Preferencial: 1a23921b-9514-470a-925c-518846414c31;
-- ID de cliente Regular: 57dd33af-dff9-4025-bf43-6e7f0c436a7a;
+## Estrutura esperada
 
 ```
 .
@@ -133,3 +122,17 @@ Mocks criados para facilitar a comunicação com o serviço de fraude;
 │   └── __files/
 └── src/main/java/com/insurance/...
 ```
+
+## Observações
+
+Mocks criados para facilitar a comunicação com o serviço de fraude;
+
+- Id de cliente de alto risco: adc56d77-348c-4bf0-908f-22d402ee715c;
+- Id de cliente Sem Informação: 692bfe41-e92a-4e04-ba26-ee77669d2c7b;
+- Id de cliente Preferencial: 1a23921b-9514-470a-925c-518846414c31;
+- ID de cliente Regular: 57dd33af-dff9-4025-bf43-6e7f0c436a7a;
+
+Em alguns pontos eu decidi add algumas coisas que não estavam definidas na documentação
+
+- Adicionei 2 Status a ordem para facilitar o processamento da notificação do pagamento e subscrição
+- Não estava definido os status dos serviços de subscription e payment, então eu criei uns status que fazem sentido no contexto nos enums [SubscriptionStatusEnum.java](src/main/java/com/insurance/domain/enums/SubscriptionStatusEnum.java) e [PaymentProcessStatusEnum.java](src/main/java/com/insurance/domain/enums/PaymentProcessStatusEnum.java)

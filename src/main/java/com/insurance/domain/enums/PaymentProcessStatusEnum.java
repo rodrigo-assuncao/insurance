@@ -1,11 +1,11 @@
-package com.insurance.domain.model.enums;
+package com.insurance.domain.enums;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
-public enum PaymentProcessEnum {
+public enum PaymentProcessStatusEnum {
 
     CONFIRMED(StatusEnum.PAYMENT_CONFIRMED), REFUSED(StatusEnum.REJECTED);
 

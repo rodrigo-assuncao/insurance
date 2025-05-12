@@ -1,6 +1,6 @@
 package com.insurance.domain.validator.customerprofile;
 
-import com.insurance.domain.model.enums.ProfileClassificationEnum;
+import com.insurance.domain.enums.ProfileClassificationEnum;
 import com.insurance.domain.validator.customerprofile.impl.CustomerHighRiskValidator;
 import com.insurance.domain.validator.customerprofile.impl.CustomerNoInformationValidator;
 import com.insurance.domain.validator.customerprofile.impl.CustomerPreferredValidator;

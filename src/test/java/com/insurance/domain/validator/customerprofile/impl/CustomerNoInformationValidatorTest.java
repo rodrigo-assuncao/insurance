@@ -1,7 +1,7 @@
 package com.insurance.domain.validator.customerprofile.impl;
 
-import com.insurance.domain.model.enums.CategoryEnum;
-import com.insurance.domain.model.enums.StatusEnum;
+import com.insurance.domain.enums.CategoryEnum;
+import com.insurance.domain.enums.StatusEnum;
 import com.insurance.domain.validator.customerprofile.ValidatorTestHelper;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

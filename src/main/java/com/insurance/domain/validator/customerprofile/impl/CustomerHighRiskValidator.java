@@ -1,7 +1,7 @@
 package com.insurance.domain.validator.customerprofile.impl;
 
 import com.insurance.domain.model.Order;
-import com.insurance.domain.model.enums.ProfileClassificationEnum;
+import com.insurance.domain.enums.ProfileClassificationEnum;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;

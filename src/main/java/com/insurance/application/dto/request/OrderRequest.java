@@ -1,9 +1,9 @@
 package com.insurance.application.dto.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.insurance.domain.model.enums.CategoryEnum;
-import com.insurance.domain.model.enums.PaymentMethodEnum;
-import com.insurance.domain.model.enums.SaleChannelEnum;
+import com.insurance.domain.enums.CategoryEnum;
+import com.insurance.domain.enums.PaymentMethodEnum;
+import com.insurance.domain.enums.SaleChannelEnum;
 import lombok.Getter;
 import lombok.Setter;
 

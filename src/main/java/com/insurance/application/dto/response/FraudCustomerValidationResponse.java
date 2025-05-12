@@ -1,6 +1,6 @@
 package com.insurance.application.dto.response;
 
-import com.insurance.domain.model.enums.ProfileClassificationEnum;
+import com.insurance.domain.enums.ProfileClassificationEnum;
 import lombok.Getter;
 import lombok.Setter;
 

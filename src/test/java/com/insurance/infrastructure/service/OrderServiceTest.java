@@ -2,7 +2,7 @@ package com.insurance.infrastructure.service;
 
 import com.insurance.application.exceptions.BadRequest;
 import com.insurance.domain.model.Order;
-import com.insurance.domain.model.enums.StatusEnum;
+import com.insurance.domain.enums.StatusEnum;
 import com.insurance.infrastructure.mongo.OrderMongoRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

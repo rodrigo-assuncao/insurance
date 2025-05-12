@@ -2,7 +2,7 @@ package com.insurance.infrastructure.service;
 
 import com.insurance.application.dto.OrderStatusUpdateDto;
 import com.insurance.domain.model.Order;
-import com.insurance.domain.model.enums.StatusEnum;
+import com.insurance.domain.enums.StatusEnum;
 import lombok.RequiredArgsConstructor;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Value;

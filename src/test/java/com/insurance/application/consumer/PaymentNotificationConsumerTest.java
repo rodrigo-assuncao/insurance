@@ -1,7 +1,7 @@
 package com.insurance.application.consumer;
 
 import com.insurance.application.dto.PaymentNotificationDto;
-import com.insurance.domain.model.enums.PaymentProcessEnum;
+import com.insurance.domain.enums.PaymentProcessStatusEnum;
 import com.insurance.domain.usecase.ProcessOrder;
 import org.junit.jupiter.api.Test;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -42,7 +42,7 @@ class PaymentNotificationConsumerTest {
     void shouldConsumerRabbitMQMessage() {
         var dto = new PaymentNotificationDto();
         dto.setOrderId(UUID.randomUUID().toString());
-        dto.setStatus(PaymentProcessEnum.CONFIRMED);
+        dto.setStatus(PaymentProcessStatusEnum.CONFIRMED);
 
         rabbitTemplate.convertAndSend("", TEST_QUEUE, dto);
 

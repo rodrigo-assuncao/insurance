@@ -11,7 +11,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.UUID;
 
-import static com.insurance.domain.model.enums.ProfileClassificationEnum.HIGH_RISK;
+import static com.insurance.domain.enums.ProfileClassificationEnum.HIGH_RISK;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.verify;

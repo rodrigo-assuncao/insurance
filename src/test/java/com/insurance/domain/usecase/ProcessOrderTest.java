@@ -7,8 +7,8 @@ import com.insurance.application.exceptions.BadRequest;
 import com.insurance.application.mapper.OrderMapper;
 import com.insurance.domain.model.History;
 import com.insurance.domain.model.Order;
-import com.insurance.domain.model.enums.ProfileClassificationEnum;
-import com.insurance.domain.model.enums.StatusEnum;
+import com.insurance.domain.enums.ProfileClassificationEnum;
+import com.insurance.domain.enums.StatusEnum;
 import com.insurance.domain.validator.customerprofile.CustomerProfileValidator;
 import com.insurance.domain.validator.customerprofile.CustomerProfileValidatorFactory;
 import com.insurance.infrastructure.service.FraudRestService;
@@ -24,7 +24,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import static com.insurance.domain.model.enums.StatusEnum.*;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;

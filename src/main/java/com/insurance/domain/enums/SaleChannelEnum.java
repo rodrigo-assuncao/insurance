@@ -1,4 +1,4 @@
-package com.insurance.domain.model.enums;
+package com.insurance.domain.enums;
 
 public enum SaleChannelEnum {
 

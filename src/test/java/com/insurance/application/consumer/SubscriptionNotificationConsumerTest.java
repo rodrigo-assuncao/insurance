@@ -1,7 +1,7 @@
 package com.insurance.application.consumer;
 
 import com.insurance.application.dto.SubscriptionNotificationDto;
-import com.insurance.domain.model.enums.SubscriptionEnum;
+import com.insurance.domain.enums.SubscriptionStatusEnum;
 import com.insurance.domain.usecase.ProcessOrder;
 import org.junit.jupiter.api.Test;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -42,7 +42,7 @@ class SubscriptionNotificationConsumerTest {
     void shouldConsumerRabbitMQMessage() {
         var dto = new SubscriptionNotificationDto();
         dto.setOrderId(UUID.randomUUID().toString());
-        dto.setStatus(SubscriptionEnum.ALLOWED);
+        dto.setStatus(SubscriptionStatusEnum.ALLOWED);
 
         rabbitTemplate.convertAndSend("", TEST_QUEUE, dto);
 

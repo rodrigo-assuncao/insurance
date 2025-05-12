@@ -1,7 +1,7 @@
 package com.insurance.domain.validator.customerprofile;
 
 import com.insurance.domain.model.Order;
-import com.insurance.domain.model.enums.CategoryEnum;
+import com.insurance.domain.enums.CategoryEnum;
 
 import java.math.BigDecimal;
 import java.util.UUID;

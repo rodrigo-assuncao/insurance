@@ -1,6 +1,6 @@
 package com.insurance.domain.validator.customerprofile;
 
-import com.insurance.domain.model.enums.ProfileClassificationEnum;
+import com.insurance.domain.enums.ProfileClassificationEnum;
 import com.insurance.domain.validator.customerprofile.impl.AbstractCustomerProfileValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

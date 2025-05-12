@@ -1,6 +1,6 @@
 package com.insurance.domain.model;
 
-import com.insurance.domain.model.enums.StatusEnum;
+import com.insurance.domain.enums.StatusEnum;
 import lombok.*;
 
 import java.time.LocalDateTime;

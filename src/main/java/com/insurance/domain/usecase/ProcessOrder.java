@@ -5,7 +5,7 @@ import com.insurance.application.dto.response.OrderResponse;
 import com.insurance.application.exceptions.BadRequest;
 import com.insurance.application.mapper.OrderMapper;
 import com.insurance.domain.model.History;
-import com.insurance.domain.model.enums.StatusEnum;
+import com.insurance.domain.enums.StatusEnum;
 import com.insurance.domain.validator.customerprofile.CustomerProfileValidatorFactory;
 import com.insurance.infrastructure.service.FraudRestService;
 import com.insurance.infrastructure.service.OrderService;
@@ -15,8 +15,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
 import java.util.UUID;
-
-import static com.insurance.domain.model.enums.StatusEnum.*;
 
 @Slf4j
 @Component

@@ -1,6 +1,6 @@
 package com.insurance.application.dto;
 
-import com.insurance.domain.model.enums.SubscriptionEnum;
+import com.insurance.domain.enums.SubscriptionStatusEnum;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,6 +9,6 @@ import lombok.Setter;
 public class SubscriptionNotificationDto {
 
     private String orderId;
-    private SubscriptionEnum status;
+    private SubscriptionStatusEnum status;
 
 }

@@ -1,12 +1,12 @@
 package com.insurance.domain.validator.customerprofile.impl;
 
 import com.insurance.domain.model.Order;
-import com.insurance.domain.model.enums.StatusEnum;
+import com.insurance.domain.enums.StatusEnum;
 import com.insurance.domain.validator.customerprofile.CustomerProfileValidator;
 import lombok.extern.slf4j.Slf4j;
 
-import static com.insurance.domain.model.enums.StatusEnum.REJECTED;
-import static com.insurance.domain.model.enums.StatusEnum.VALIDATED;
+import static com.insurance.domain.enums.StatusEnum.REJECTED;
+import static com.insurance.domain.enums.StatusEnum.VALIDATED;
 
 @Slf4j
 public abstract class AbstractCustomerProfileValidator implements CustomerProfileValidator {

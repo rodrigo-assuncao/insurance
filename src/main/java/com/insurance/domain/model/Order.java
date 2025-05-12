@@ -1,8 +1,8 @@
 package com.insurance.domain.model;
 
-import com.insurance.domain.model.enums.CategoryEnum;
-import com.insurance.domain.model.enums.PaymentMethodEnum;
-import com.insurance.domain.model.enums.SaleChannelEnum;
+import com.insurance.domain.enums.CategoryEnum;
+import com.insurance.domain.enums.PaymentMethodEnum;
+import com.insurance.domain.enums.SaleChannelEnum;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

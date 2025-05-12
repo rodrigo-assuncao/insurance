@@ -1,6 +1,6 @@
 package com.insurance.application.dto;
 
-import com.insurance.domain.model.enums.PaymentProcessEnum;
+import com.insurance.domain.enums.PaymentProcessStatusEnum;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,6 +9,6 @@ import lombok.Setter;
 public class PaymentNotificationDto {
 
     private String orderId;
-    private PaymentProcessEnum status;
+    private PaymentProcessStatusEnum status;
 
 }
