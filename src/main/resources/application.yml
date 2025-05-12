@@ -21,6 +21,19 @@ spring:
   client:
     fraud-rest-service:
       url: localhost:8081/fraud
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, metrics, prometheus
+  endpoint:
+    health:
+      show-details: always
+info:
+  app:
+    name: insurance-service
+    description: API de gerenciamento de seguros
+    version: 1.0.0
 
 feign:
   client:
