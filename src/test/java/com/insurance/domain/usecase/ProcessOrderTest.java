@@ -3,7 +3,7 @@ package com.insurance.domain.usecase;
 import com.insurance.application.dto.request.OrderRequest;
 import com.insurance.application.dto.response.FraudCustomerValidationResponse;
 import com.insurance.application.dto.response.OrderResponse;
-import com.insurance.application.exceptions.BadRequest;
+import com.insurance.application.exceptions.BadRequestException;
 import com.insurance.application.mapper.OrderMapper;
 import com.insurance.domain.model.History;
 import com.insurance.domain.model.Order;
@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import static com.insurance.domain.enums.StatusEnum.*;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
@@ -112,7 +113,7 @@ class ProcessOrderTest {
 
         when(this.orderService.findById(eq(findOrder.getId()))).thenReturn(findOrder);
 
-        assertThrows(BadRequest.class, () -> processOrder.updateStatusOrder(findOrder.getId().toString(), SUBSCRIPTION_ALLOWED));
+        assertThrows(BadRequestException.class, () -> processOrder.updateStatusOrder(findOrder.getId().toString(), SUBSCRIPTION_ALLOWED));
     }
 
     @Test
@@ -179,7 +180,7 @@ class ProcessOrderTest {
 
         when(this.orderService.findById(eq(findOrder.getId()))).thenReturn(findOrder);
 
-        assertThrows(BadRequest.class, () -> processOrder.cancelOrder(findOrder.getId().toString()));
+        assertThrows(BadRequestException.class, () -> processOrder.cancelOrder(findOrder.getId().toString()));
     }
 
     private void testCreateOrder(StatusEnum finalStatus, int timesUpdatedStatusCalled) {

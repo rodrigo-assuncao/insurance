@@ -1,6 +1,7 @@
 package com.insurance.infrastructure.service;
 
-import com.insurance.application.exceptions.BadRequest;
+import com.insurance.application.exceptions.BadRequestException;
+import com.insurance.application.exceptions.NotFoundException;
 import com.insurance.domain.model.Order;
 import com.insurance.domain.enums.StatusEnum;
 import com.insurance.infrastructure.mongo.OrderMongoRepository;
@@ -67,7 +68,7 @@ class OrderServiceTest {
         var id = UUID.randomUUID();
         when(repository.findById(id)).thenReturn(Optional.empty());
 
-        assertThrows(BadRequest.class, () -> orderService.findById(id));
+        assertThrows(NotFoundException.class, () -> orderService.findById(id));
     }
 
     @Test

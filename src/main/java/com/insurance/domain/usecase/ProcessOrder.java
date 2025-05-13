@@ -2,7 +2,7 @@ package com.insurance.domain.usecase;
 
 import com.insurance.application.dto.request.OrderRequest;
 import com.insurance.application.dto.response.OrderResponse;
-import com.insurance.application.exceptions.BadRequest;
+import com.insurance.application.exceptions.BadRequestException;
 import com.insurance.application.mapper.OrderMapper;
 import com.insurance.domain.model.History;
 import com.insurance.domain.enums.StatusEnum;
@@ -14,6 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 import static com.insurance.domain.enums.StatusEnum.*;
@@ -63,7 +64,7 @@ public class ProcessOrder {
         var order = this.orderService.findById(UUID.fromString(orderId));
 
         if (order.getHistory().stream().anyMatch(history -> history.getStatus() == CANCELED)) {
-            throw new BadRequest("Order Canceled");
+            throw new BadRequestException("Order Canceled");
         }
 
         var updatedOrder = this.orderService.updateOrderStatus(order, status);
@@ -74,6 +75,7 @@ public class ProcessOrder {
 
         if (lastOrderStatus.contains(SUBSCRIPTION_ALLOWED) && lastOrderStatus.contains(PAYMENT_CONFIRMED)) {
             log.info("Order[{}] Approved", orderId);
+            updatedOrder.setFinishedAt(LocalDateTime.now());
             this.orderService.updateOrderStatus(updatedOrder, APPROVED);
         }
     }
@@ -95,10 +97,10 @@ public class ProcessOrder {
             log.info("Last Status for order[{}] -> {}", order, lastHistory.getStatus());
             if (lastHistory.getStatus() == CANCELED) {
                 log.info("Order[{}] already canceled.", orderId);
-                throw new BadRequest("Order already canceled");
+                throw new BadRequestException("Order already canceled");
             } else if (lastHistory.getStatus() == APPROVED || lastHistory.getStatus() == REJECTED) {
                 log.info("Cancel Order[{}] not allowed. Order status is {}", orderId, lastHistory.getStatus());
-                throw new BadRequest("Cancel Order not allowed. Order status is " + StringUtils.capitalize(lastHistory.getStatus().name()));
+                throw new BadRequestException("Cancel Order not allowed. Order status is " + StringUtils.capitalize(lastHistory.getStatus().name()));
             }
         }
 

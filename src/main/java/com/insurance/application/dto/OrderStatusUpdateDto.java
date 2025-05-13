@@ -1,13 +1,13 @@
 package com.insurance.application.dto;
 
 import com.insurance.domain.enums.StatusEnum;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class OrderStatusUpdateDto {
 
     private String orderId;

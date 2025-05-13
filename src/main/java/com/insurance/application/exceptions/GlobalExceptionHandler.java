@@ -14,10 +14,10 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(BusinessException.class)
     public ResponseEntity<Object> handlerBusiness(BusinessException exception) {
         var responseStatus = exception.getClass().getAnnotation(ResponseStatus.class);
-        return ResponseEntity.status(responseStatus.code()).body(
+        return ResponseEntity.status(responseStatus.value()).body(
                 Map.of(
                         "timestamp", LocalDateTime.now(),
-                        "status", responseStatus.code().value(),
+                        "status", responseStatus.value().value(),
                         "message", exception.getMessage()
                 )
         );
