@@ -1,0 +1,252 @@
+type: collection.insomnia.rest/5.0
+name: Scratch Pad
+meta:
+  id: wrk_scratchpad
+  created: 1700355431991
+  modified: 1700355431991
+collection:
+  - name: insurance
+    meta:
+      id: fld_2d15b339506e41da8d5fdaf15961858a
+      created: 1747100309372
+      modified: 1747100309372
+      sortKey: -1747100309372
+    children:
+      - url: http://localhost:8080/order
+        name: ORDER_CUSTOMER_HIGH_RISK
+        meta:
+          id: req_2145b2715de042afb9ae8752a564b862
+          created: 1746984444379
+          modified: 1747101029539
+          isPrivate: false
+          sortKey: -1747100321405
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"customer_id": "adc56d77-348c-4bf0-908f-22d402ee715c",
+            	"product_id": "adc56d77-348c-4bf0-908f-22d402ee715c",
+            	"category": "AUTO",
+            	"salesChannel": "MOBILE",
+            	"paymentMethod": "CREDIT_CARD",
+            	"total_monthly_premium_amount": 75.25,
+            	"insured_amount": 275000.50,
+            	"coverages": {
+            		"Roubo": 100000.25,
+            		"Perda Total": 100000.25,
+            		"Colisão com Terceiros": 75000.00
+            	},
+            	"assistances": [
+            		"Guincho até 250km",
+            		"Troca de Óleo",
+            		"Chaveiro 24h"
+            	]
+            }
+        headers:
+          - name: accept
+            value: "*/*"
+          - name: Content-Type
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/order
+        name: ORDER_CUSTOMER_REGULAR
+        meta:
+          id: req_7472ad42c0d2438e9e88284faf0bd0b8
+          created: 1746986297480
+          modified: 1747101012031
+          isPrivate: false
+          sortKey: -1747100321305
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"customer_id": "57dd33af-dff9-4025-bf43-6e7f0c436a7a",
+            	"product_id": "adc56d77-348c-4bf0-908f-22d402ee715c",
+            	"category": "LIFE",
+            	"salesChannel": "MOBILE",
+            	"paymentMethod": "CREDIT_CARD",
+            	"total_monthly_premium_amount": 75.25,
+            	"insured_amount": 125000,
+            	"coverages": {
+            		"Roubo": 100000.25,
+            		"Perda Total": 100000.25,
+            		"Colisão com Terceiros": 75000.00
+            	},
+            	"assistances": [
+            		"Guincho até 250km",
+            		"Troca de Óleo",
+            		"Chaveiro 24h"
+            	]
+            }
+        headers:
+          - name: accept
+            value: "*/*"
+          - name: Content-Type
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/order
+        name: ORDER_CUSTOMER_PREFERRED
+        meta:
+          id: req_d01d97af6f0945f8adf1330c57b951a6
+          created: 1746986330560
+          modified: 1747100997531
+          isPrivate: false
+          sortKey: -1747100321205
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"customer_id": "1a23921b-9514-470a-925c-518846414c31",
+            	"product_id": "adc56d77-348c-4bf0-908f-22d402ee715c",
+            	"category": "BUSINESS",
+            	"salesChannel": "MOBILE",
+            	"paymentMethod": "CREDIT_CARD",
+            	"total_monthly_premium_amount": 75.25,
+            	"insured_amount": 374000.50,
+            	"coverages": {
+            		"Roubo": 100000.25,
+            		"Perda Total": 100000.25,
+            		"Colisão com Terceiros": 75000.00
+            	},
+            	"assistances": [
+            		"Guincho até 250km",
+            		"Troca de Óleo",
+            		"Chaveiro 24h"
+            	]
+            }
+        headers:
+          - name: accept
+            value: "*/*"
+          - name: Content-Type
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/order
+        name: ORDER_CUSTOMER_NO_INFORMATION
+        meta:
+          id: req_27c1c8fdd97d4eee8f2c50a87593726a
+          created: 1746986369437
+          modified: 1747100978853
+          isPrivate: false
+          sortKey: -1747100321105
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"customer_id": "692bfe41-e92a-4e04-ba26-ee77669d2c7b",
+            	"product_id": "adc56d77-348c-4bf0-908f-22d402ee715c",
+            	"category": "BUSINESS",
+            	"salesChannel": "MOBILE",
+            	"paymentMethod": "CREDIT_CARD",
+            	"total_monthly_premium_amount": 75.25,
+            	"insured_amount": 55000,
+            	"coverages": {
+            		"Roubo": 100000.25,
+            		"Perda Total": 100000.25,
+            		"Colisão com Terceiros": 75000.00
+            	},
+            	"assistances": [
+            		"Guincho até 250km",
+            		"Troca de Óleo",
+            		"Chaveiro 24h"
+            	]
+            }
+        headers:
+          - name: accept
+            value: "*/*"
+          - name: Content-Type
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/order/:id
+        name: get order by id
+        meta:
+          id: req_a586ef3079fe448aa55f95d41c90b262
+          created: 1747094325449
+          modified: 1747100330786
+          isPrivate: false
+          sortKey: -1747100320605
+        method: GET
+        parameters:
+          - id: pair_b8e452915566478b8c2622d4acdc624a
+            disabled: false
+        headers:
+          - name: accept
+            value: "*/*"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+        pathParameters:
+          - name: id
+            value: 44895957-0289-48bf-933e-da230ce8f888
+      - url: http://localhost:8080/order/:id/cancel
+        name: Cancel order
+        meta:
+          id: req_53bd3e4913e949a3864eec761bfe16f8
+          created: 1747096030363
+          modified: 1747100320553
+          isPrivate: false
+          sortKey: -1747100320505
+        method: POST
+        headers:
+          - name: accept
+            value: "*/*"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+        pathParameters:
+          - name: id
+            value: 88487f07-3c63-45fa-b55e-3bbcb5544079
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1746934383857
+    modified: 1746934383857
+environments:
+  name: Base Environment
+  meta:
+    id: env_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1746934383732
+    modified: 1746934383732
+    isPrivate: false
