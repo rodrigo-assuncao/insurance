@@ -132,7 +132,7 @@ Mocks criados para facilitar a comunicação com o serviço de fraude;
 - Id de cliente Preferencial: 1a23921b-9514-470a-925c-518846414c31;
 - ID de cliente Regular: 57dd33af-dff9-4025-bf43-6e7f0c436a7a;
 
-Em alguns pontos eu decidi add algumas coisas que não estavam definidas na documentação
+Em alguns pontos eu optei por adicionar algumas coisas que não estavam definidas na documentação
 
 - Adicionei 2 Status a ordem para facilitar o processamento da notificação do pagamento e subscrição
 - Não estava definido os status dos serviços de subscription e payment, então eu criei uns status que fazem sentido no contexto nos enums [SubscriptionStatusEnum.java](src/main/java/com/insurance/domain/enums/SubscriptionStatusEnum.java) e [PaymentProcessStatusEnum.java](src/main/java/com/insurance/domain/enums/PaymentProcessStatusEnum.java)
