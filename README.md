@@ -72,6 +72,7 @@ http://localhost:8080/swagger-ui.html
 ---
 
 ## Observabilidade
+logs gerados a partir do @Slf4j na pasta [logs](logs) na raiz do projeto.
 
 Actuator habilitado para os endpoints:
 
@@ -80,7 +81,6 @@ http://localhost:8080/actuator/health
 http://localhost:8080/actuator/info
 http://localhost:8080/actuator/metrics
 ```
-logs gerados a partir do @Slf4j na pasta [logs](logs) na raiz do projeto.
 ---
 
 ## Arquitetura
