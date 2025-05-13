@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
 
 @ResponseStatus(INTERNAL_SERVER_ERROR)
-public abstract class BusinessException extends RuntimeException {
+public class BusinessException extends RuntimeException {
     public BusinessException(String message) {
         super(message);
     }

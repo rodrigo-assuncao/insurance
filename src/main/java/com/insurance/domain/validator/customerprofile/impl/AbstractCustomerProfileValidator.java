@@ -1,7 +1,7 @@
 package com.insurance.domain.validator.customerprofile.impl;
 
-import com.insurance.domain.model.Order;
 import com.insurance.domain.enums.StatusEnum;
+import com.insurance.domain.model.Order;
 import com.insurance.domain.validator.customerprofile.CustomerProfileValidator;
 import lombok.extern.slf4j.Slf4j;
 

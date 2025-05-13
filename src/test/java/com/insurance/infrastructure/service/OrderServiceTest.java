@@ -1,9 +1,8 @@
 package com.insurance.infrastructure.service;
 
-import com.insurance.application.exceptions.BadRequestException;
 import com.insurance.application.exceptions.NotFoundException;
-import com.insurance.domain.model.Order;
 import com.insurance.domain.enums.StatusEnum;
+import com.insurance.domain.model.Order;
 import com.insurance.infrastructure.mongo.OrderMongoRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

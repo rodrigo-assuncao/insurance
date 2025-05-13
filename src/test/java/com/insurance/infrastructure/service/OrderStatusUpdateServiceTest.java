@@ -1,8 +1,8 @@
 package com.insurance.infrastructure.service;
 
 import com.insurance.application.dto.OrderStatusUpdateDto;
-import com.insurance.domain.model.Order;
 import com.insurance.domain.enums.StatusEnum;
+import com.insurance.domain.model.Order;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
