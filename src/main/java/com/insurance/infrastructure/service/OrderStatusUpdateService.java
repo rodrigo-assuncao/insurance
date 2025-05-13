@@ -1,7 +1,7 @@
 package com.insurance.infrastructure.service;
 
 import com.insurance.application.dto.OrderStatusUpdateDto;
-import com.insurance.domain.enums.StatusEnum;
+import com.insurance.domain.enums.OrderStatusEnum;
 import com.insurance.domain.model.Order;
 import lombok.RequiredArgsConstructor;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -20,7 +20,7 @@ public class OrderStatusUpdateService {
 
     private final RabbitTemplate rabbitTemplate;
 
-    public void send(Order order, StatusEnum status) {
+    public void send(Order order, OrderStatusEnum status) {
 
         var solicitationStatusUpdateDto = OrderStatusUpdateDto.builder()
                 .orderId(order.getId().toString())
@@ -28,8 +28,8 @@ public class OrderStatusUpdateService {
                 .build();
 
         this.rabbitTemplate.convertAndSend(
-                exchangeName,
-                routingKey,
+                this.exchangeName,
+                this.routingKey,
                 solicitationStatusUpdateDto
         );
     }

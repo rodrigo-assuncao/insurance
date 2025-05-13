@@ -1,6 +1,6 @@
 package com.insurance.application.dto;
 
-import com.insurance.domain.enums.StatusEnum;
+import com.insurance.domain.enums.OrderStatusEnum;
 import lombok.*;
 
 @Getter
@@ -11,6 +11,6 @@ import lombok.*;
 public class OrderStatusUpdateDto {
 
     private String orderId;
-    private StatusEnum status;
+    private OrderStatusEnum status;
 
 }

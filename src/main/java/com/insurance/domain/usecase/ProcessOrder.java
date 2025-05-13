@@ -4,7 +4,7 @@ import com.insurance.application.dto.request.OrderRequest;
 import com.insurance.application.dto.response.OrderResponse;
 import com.insurance.application.exceptions.BadRequestException;
 import com.insurance.application.mapper.OrderMapper;
-import com.insurance.domain.enums.StatusEnum;
+import com.insurance.domain.enums.OrderStatusEnum;
 import com.insurance.domain.model.History;
 import com.insurance.domain.validator.customerprofile.CustomerProfileValidatorFactory;
 import com.insurance.infrastructure.service.FraudRestService;
@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-import static com.insurance.domain.enums.StatusEnum.*;
+import static com.insurance.domain.enums.OrderStatusEnum.*;
 
 @Slf4j
 @Component
@@ -60,7 +60,7 @@ public class ProcessOrder {
         return this.orderMapper.toResponse(savedOrder);
     }
 
-    public void updateStatusOrder(String orderId, StatusEnum status) {
+    public void updateStatusOrder(String orderId, OrderStatusEnum status) {
         var order = this.orderService.findById(UUID.fromString(orderId));
 
         if (order.getHistory().stream().anyMatch(history -> history.getStatus() == CANCELED)) {

@@ -1,7 +1,7 @@
 package com.insurance.infrastructure.service;
 
 import com.insurance.application.dto.OrderStatusUpdateDto;
-import com.insurance.domain.enums.StatusEnum;
+import com.insurance.domain.enums.OrderStatusEnum;
 import com.insurance.domain.model.Order;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -40,7 +40,7 @@ class OrderStatusUpdateServiceTest {
         var order = new Order();
         order.setId(UUID.randomUUID());
 
-        var status = StatusEnum.APPROVED;
+        var status = OrderStatusEnum.APPROVED;
 
         service.send(order, status);
 

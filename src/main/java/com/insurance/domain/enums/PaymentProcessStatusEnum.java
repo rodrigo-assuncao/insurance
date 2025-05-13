@@ -7,8 +7,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public enum PaymentProcessStatusEnum {
 
-    CONFIRMED(StatusEnum.PAYMENT_CONFIRMED), REFUSED(StatusEnum.REJECTED);
+    CONFIRMED(OrderStatusEnum.PAYMENT_CONFIRMED), REFUSED(OrderStatusEnum.REJECTED);
 
-    private final StatusEnum orderStatus;
+    private final OrderStatusEnum orderStatus;
 
 }

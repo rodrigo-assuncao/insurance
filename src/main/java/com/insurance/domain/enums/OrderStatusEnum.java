@@ -4,7 +4,7 @@ import com.insurance.domain.model.History;
 
 import java.time.LocalDateTime;
 
-public enum StatusEnum {
+public enum OrderStatusEnum {
 
     RECEIVED, VALIDATED, PENDING, REJECTED, APPROVED, CANCELED, PAYMENT_CONFIRMED, SUBSCRIPTION_ALLOWED;
 

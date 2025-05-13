@@ -1,7 +1,7 @@
 package com.insurance.domain.validator.customerprofile.impl;
 
-import com.insurance.domain.enums.CategoryEnum;
-import com.insurance.domain.enums.StatusEnum;
+import com.insurance.domain.enums.OrderCategoryEnum;
+import com.insurance.domain.enums.OrderStatusEnum;
 import com.insurance.domain.validator.customerprofile.ValidatorTestHelper;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -18,20 +18,20 @@ class CustomerPreferredValidatorTest {
 
     @Test
     void shouldValidatePreferred_LIFE_AboveLimit() {
-        var order = ValidatorTestHelper.createOrder(CategoryEnum.LIFE, "900000");
-        assertEquals(StatusEnum.VALIDATED, validator.execute(order));
+        var order = ValidatorTestHelper.createOrder(OrderCategoryEnum.LIFE, "900000");
+        assertEquals(OrderStatusEnum.VALIDATED, validator.execute(order));
     }
 
     @Test
     void shouldRejectPreferred_AUTO_BelowLimit() {
-        var order = ValidatorTestHelper.createOrder(CategoryEnum.AUTO, "100000");
-        assertEquals(StatusEnum.REJECTED, validator.execute(order));
+        var order = ValidatorTestHelper.createOrder(OrderCategoryEnum.AUTO, "100000");
+        assertEquals(OrderStatusEnum.REJECTED, validator.execute(order));
     }
 
     @Test
     void shouldValidatePreferred_Default_ExactlyUnderLimit() {
-        var order = ValidatorTestHelper.createOrder(CategoryEnum.BUSINESS, "370000");
-        assertEquals(StatusEnum.VALIDATED, validator.execute(order));
+        var order = ValidatorTestHelper.createOrder(OrderCategoryEnum.BUSINESS, "370000");
+        assertEquals(OrderStatusEnum.VALIDATED, validator.execute(order));
     }
 
 }

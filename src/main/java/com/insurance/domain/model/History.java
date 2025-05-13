@@ -1,6 +1,6 @@
 package com.insurance.domain.model;
 
-import com.insurance.domain.enums.StatusEnum;
+import com.insurance.domain.enums.OrderStatusEnum;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class History {
 
-    private StatusEnum status;
+    private OrderStatusEnum status;
     private LocalDateTime timestamp;
 
 }

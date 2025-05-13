@@ -1,7 +1,7 @@
 package com.insurance.infrastructure.service;
 
 import com.insurance.application.exceptions.NotFoundException;
-import com.insurance.domain.enums.StatusEnum;
+import com.insurance.domain.enums.OrderStatusEnum;
 import com.insurance.domain.model.Order;
 import com.insurance.infrastructure.mongo.OrderMongoRepository;
 import lombok.RequiredArgsConstructor;
@@ -31,7 +31,7 @@ public class OrderService {
                 .orElseThrow(() -> new NotFoundException("Order not found"));
     }
 
-    public Order updateOrderStatus(Order order, StatusEnum status) {
+    public Order updateOrderStatus(Order order, OrderStatusEnum status) {
         log.info("Update Order[{}] to status {}. customer[{}]", order.getId().toString(), status.name(), order.getCustomerId());
         if (order.getHistory() == null) {
             order.setHistory(new ArrayList<>());

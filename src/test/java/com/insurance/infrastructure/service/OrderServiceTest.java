@@ -1,7 +1,7 @@
 package com.insurance.infrastructure.service;
 
 import com.insurance.application.exceptions.NotFoundException;
-import com.insurance.domain.enums.StatusEnum;
+import com.insurance.domain.enums.OrderStatusEnum;
 import com.insurance.domain.model.Order;
 import com.insurance.infrastructure.mongo.OrderMongoRepository;
 import org.junit.jupiter.api.Test;
@@ -78,13 +78,13 @@ class OrderServiceTest {
 
         when(repository.save(order)).thenReturn(order);
 
-        var updated = orderService.updateOrderStatus(order, StatusEnum.APPROVED);
+        var updated = orderService.updateOrderStatus(order, OrderStatusEnum.APPROVED);
 
         assertNotNull(updated.getHistory());
         assertEquals(1, updated.getHistory().size());
 
         verify(repository).save(order);
-        verify(orderStatusUpdateService).send(order, StatusEnum.APPROVED);
+        verify(orderStatusUpdateService).send(order, OrderStatusEnum.APPROVED);
     }
 
 }

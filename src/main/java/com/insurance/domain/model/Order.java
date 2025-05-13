@@ -1,6 +1,6 @@
 package com.insurance.domain.model;
 
-import com.insurance.domain.enums.CategoryEnum;
+import com.insurance.domain.enums.OrderCategoryEnum;
 import com.insurance.domain.enums.PaymentMethodEnum;
 import com.insurance.domain.enums.SaleChannelEnum;
 import lombok.*;
@@ -23,7 +23,7 @@ public class Order {
     private UUID id;
     private UUID customerId;
     private UUID productId;
-    private CategoryEnum category;
+    private OrderCategoryEnum category;
     private SaleChannelEnum salesChannel;
     private PaymentMethodEnum paymentMethod;
     private LocalDateTime createdAt;

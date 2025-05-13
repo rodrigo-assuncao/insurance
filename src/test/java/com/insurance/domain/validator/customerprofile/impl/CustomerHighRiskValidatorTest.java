@@ -1,7 +1,7 @@
 package com.insurance.domain.validator.customerprofile.impl;
 
-import com.insurance.domain.enums.CategoryEnum;
-import com.insurance.domain.enums.StatusEnum;
+import com.insurance.domain.enums.OrderCategoryEnum;
+import com.insurance.domain.enums.OrderStatusEnum;
 import com.insurance.domain.validator.customerprofile.ValidatorTestHelper;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -18,20 +18,20 @@ class CustomerHighRiskValidatorTest {
 
     @Test
     void shouldValidateHighRisk_LIFE_BelowLimit() {
-        var order = ValidatorTestHelper.createOrder(CategoryEnum.LIFE, "499999");
-        assertEquals(StatusEnum.VALIDATED, validator.execute(order));
+        var order = ValidatorTestHelper.createOrder(OrderCategoryEnum.LIFE, "499999");
+        assertEquals(OrderStatusEnum.VALIDATED, validator.execute(order));
     }
 
     @Test
     void shouldRejectHighRisk_AUTO_AboveLimit() {
-        var order = ValidatorTestHelper.createOrder(CategoryEnum.AUTO, "400000");
-        assertEquals(StatusEnum.REJECTED, validator.execute(order));
+        var order = ValidatorTestHelper.createOrder(OrderCategoryEnum.AUTO, "400000");
+        assertEquals(OrderStatusEnum.REJECTED, validator.execute(order));
     }
 
     @Test
     void shouldValidateHighRisk_Default_BelowLimit() {
-        var order = ValidatorTestHelper.createOrder(CategoryEnum.BUSINESS, "250000");
-        assertEquals(StatusEnum.VALIDATED, validator.execute(order));
+        var order = ValidatorTestHelper.createOrder(OrderCategoryEnum.BUSINESS, "250000");
+        assertEquals(OrderStatusEnum.VALIDATED, validator.execute(order));
     }
 
 }

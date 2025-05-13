@@ -1,6 +1,6 @@
 package com.insurance.infrastructure.service;
 
-import com.insurance.domain.enums.StatusEnum;
+import com.insurance.domain.enums.OrderStatusEnum;
 import com.insurance.domain.model.Order;
 import com.insurance.infrastructure.mongo.OrderMongoRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -56,11 +56,11 @@ class OrderServiceIntegrationTest {
     @Test
     void shouldUpdateOrderStatusWithHistory() {
         orderService.save(order);
-        Order updated = orderService.updateOrderStatus(order, StatusEnum.APPROVED);
+        Order updated = orderService.updateOrderStatus(order, OrderStatusEnum.APPROVED);
 
         assertNotNull(updated.getHistory());
         assertEquals(1, updated.getHistory().size());
-        assertEquals(StatusEnum.APPROVED, updated.getHistory().get(0).getStatus());
+        assertEquals(OrderStatusEnum.APPROVED, updated.getHistory().get(0).getStatus());
     }
 }
 

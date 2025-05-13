@@ -6,7 +6,7 @@ import com.insurance.application.dto.response.OrderResponse;
 import com.insurance.application.exceptions.BadRequestException;
 import com.insurance.application.mapper.OrderMapper;
 import com.insurance.domain.enums.ProfileClassificationEnum;
-import com.insurance.domain.enums.StatusEnum;
+import com.insurance.domain.enums.OrderStatusEnum;
 import com.insurance.domain.model.History;
 import com.insurance.domain.model.Order;
 import com.insurance.domain.validator.customerprofile.CustomerProfileValidator;
@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import static com.insurance.domain.enums.StatusEnum.*;
+import static com.insurance.domain.enums.OrderStatusEnum.*;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
@@ -171,7 +171,7 @@ class ProcessOrderTest {
         testCancelOrderLastStatus(REJECTED);
     }
 
-    private void testCancelOrderLastStatus(StatusEnum status) {
+    private void testCancelOrderLastStatus(OrderStatusEnum status) {
         var findOrder = new Order();
         findOrder.setId(UUID.randomUUID());
         findOrder.setHistory(List.of(
@@ -183,7 +183,7 @@ class ProcessOrderTest {
         assertThrows(BadRequestException.class, () -> processOrder.cancelOrder(findOrder.getId().toString()));
     }
 
-    private void testCreateOrder(StatusEnum finalStatus, int timesUpdatedStatusCalled) {
+    private void testCreateOrder(OrderStatusEnum finalStatus, int timesUpdatedStatusCalled) {
         var customerId = UUID.randomUUID();
         OrderRequest request = new OrderRequest();
         request.setCustomerId(customerId);
@@ -215,7 +215,7 @@ class ProcessOrderTest {
         return response;
     }
 
-    private History mockHistory(StatusEnum status) {
+    private History mockHistory(OrderStatusEnum status) {
         return History.builder()
                 .status(status)
                 .timestamp(LocalDateTime.now())

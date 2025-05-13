@@ -1,6 +1,6 @@
 package com.insurance.domain.enums;
 
-public enum CategoryEnum {
+public enum OrderCategoryEnum {
 
     LIFE, AUTO, RESIDENTIAL, BUSINESS, OTHER;
 
