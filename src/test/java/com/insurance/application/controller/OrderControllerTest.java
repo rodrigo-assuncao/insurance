@@ -3,6 +3,7 @@ package com.insurance.application.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.insurance.application.dto.request.OrderRequest;
 import com.insurance.application.dto.response.OrderResponse;
+import com.insurance.application.exceptions.NotFoundException;
 import com.insurance.domain.usecase.ProcessOrder;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -61,6 +62,21 @@ class OrderControllerTest {
         mockMvc.perform(get("/order/{orderId}", orderId))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id").value(orderId.toString()));
+    }
+
+    @Test
+    void shouldThrowsNotFound_whenTryToFindOrderById() throws Exception {
+        var orderId = UUID.randomUUID();
+
+        OrderResponse response = new OrderResponse();
+        response.setId(orderId);
+
+
+
+        Mockito.when(processOrder.findOrderByOrderId(orderId.toString())).thenThrow(new NotFoundException("Order not found"));
+
+        mockMvc.perform(get("/order/{orderId}", orderId))
+                .andExpect(status().isNotFound());
     }
 
     @Test
