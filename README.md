@@ -56,7 +56,7 @@ ou executar a classe [InsuranceApplication.java](src/main/java/com/insurance/Ins
 ```
 
 - Testes unitários: Cobrem regras de negócio (serviços, validadores, factory)
-- Testes de integração: Validam controladores, repositórios e consumidores RabbitMQ
+- Testes de integração: Validam controladores, banco de dados mongodb e consumidores RabbitMQ
 - Utiliza `spring-rabbit-test` e `MockMvc`
 
 ---
